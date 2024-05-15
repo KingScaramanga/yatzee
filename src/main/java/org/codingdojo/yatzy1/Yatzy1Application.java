@@ -1,16 +1,19 @@
 package org.codingdojo.yatzy1;
 
-public class Yatzy1 {
+public class Yatzy1Application {
 
-    public static int chance(int d1, int d2, int d3, int d4, int d5)
+    public static void main(String[] args){
+        System.out.println("Welcome to Yatze1");
+
+        if (args.length<6){
+            throw new IllegalArgumentException("Yatze1 need 6 parameters to start properly");
+        }
+
+    }
+
+    public static int chance(int firstDice, int secondDice, int thirdDice, int fourthDice, int fifthDice)
     {
-        int total = 0;
-        total += d1;
-        total += d2;
-        total += d3;
-        total += d4;
-        total += d5;
-        return total;
+        return firstDice + secondDice + thirdDice + fourthDice + fifthDice;
     }
 
     public static int yatzy(int... dice)
@@ -58,8 +61,8 @@ public class Yatzy1 {
     }
 
     protected int[] dice;
-    public Yatzy1() {}
-    public Yatzy1(int d1, int d2, int d3, int d4, int _5)
+    public Yatzy1Application() {}
+    public Yatzy1Application(int d1, int d2, int d3, int d4, int _5)
     {
         this();
         dice = new int[5];
