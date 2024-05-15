@@ -4,6 +4,6 @@ import org.codingdojo.yatzy1.diceManagement.Dice;
 
 import java.util.List;
 
-public interface CategoryStrategy {
-    int calculate(List<Dice> dices);
+public interface Category {
+    int calculate(Dice[] dices);
 }

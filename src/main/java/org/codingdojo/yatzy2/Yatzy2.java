@@ -1,12 +1,11 @@
 package org.codingdojo.yatzy2;
 
 import org.codingdojo.YatzyCalculator;
-import org.codingdojo.YatzyCategory;
+import org.codingdojo.yatzy1.categoryManagement.AllowedCategory;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Yatzy2 implements YatzyCalculator {
@@ -15,12 +14,12 @@ public class Yatzy2 implements YatzyCalculator {
 
     @Override
     public List<String> validCategories() {
-        return Arrays.stream(YatzyCategory.values()).map(Enum::toString).collect(Collectors.toList());
+        return Arrays.stream(AllowedCategory.values()).map(Enum::toString).collect(Collectors.toList());
     }
 
     @Override
     public int score(List<Integer> dice, String categoryName) {
-        YatzyCategory category = YatzyCategory.valueOf(categoryName);
+        AllowedCategory category = AllowedCategory.valueOf(categoryName);
 
         // calculate dice frequencies
         HashMap<Integer, Integer> diceFrequencies = new HashMap<>();

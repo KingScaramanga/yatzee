@@ -1,27 +1,25 @@
 package org.codingdojo.yatzy1.rollManagement;
 
-import org.codingdojo.yatzy1.categoryManagement.CategoryStrategy;
+import org.codingdojo.yatzy1.categoryManagement.Category;
 import org.codingdojo.yatzy1.diceManagement.Dice;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 public class Roll {
-    private final List<Dice> dices;
-    private final CategoryStrategy selectedCategory;
+    private final Dice[] dices;
+    private final Category selectedCategory;
 
-    public Roll(List<Dice> dices, CategoryStrategy selectedCategory) {
-        this.dices = new LinkedList<Dice>(dices);
+    public Roll(Dice[] dices, Category selectedCategory) {
+        this.dices = new Dice[5];
         this.selectedCategory = selectedCategory;
     }
 
-    public List<Dice> getDices() {
-        return new LinkedList<>(this.dices);
+    public Dice[] getDices() {
+        return this.dices;
     }
 
-    public CategoryStrategy getSelectedCategory() {
+    public Category getSelectedCategory() {
         return selectedCategory;
     }
 

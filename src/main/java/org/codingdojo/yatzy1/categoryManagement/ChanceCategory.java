@@ -2,13 +2,13 @@ package org.codingdojo.yatzy1.categoryManagement;
 
 import org.codingdojo.yatzy1.diceManagement.Dice;
 
+import java.util.Arrays;
 import java.util.List;
-import java.util.stream.IntStream;
 
-public class chanceStrategy implements CategoryStrategy{
+public class ChanceCategory implements Category {
     @Override
-    public int calculate(List<Dice> dices) {
-        return dices.stream()
+    public int calculate(Dice[] dices) {
+        return Arrays.stream(dices)
             .mapToInt(Dice::getValue)
             .sum();
     }

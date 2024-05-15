@@ -1,6 +1,6 @@
-package org.codingdojo;
+package org.codingdojo.yatzy1.categoryManagement;
 
-public enum YatzyCategory {
+public enum AllowedCategory {
     CHANCE, YATZY,
     ONES, TWOS, THREES, FOURS, FIVES, SIXES,
     PAIR, THREE_OF_A_KIND, FOUR_OF_A_KIND,

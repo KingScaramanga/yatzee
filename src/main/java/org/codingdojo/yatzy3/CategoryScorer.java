@@ -1,6 +1,6 @@
 package org.codingdojo.yatzy3;
 
-import org.codingdojo.YatzyCategory;
+import org.codingdojo.yatzy1.categoryManagement.AllowedCategory;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -9,7 +9,7 @@ import java.util.Map;
 
 public abstract class CategoryScorer {
     public static CategoryScorer createInstance(String categoryName) {
-        YatzyCategory category = YatzyCategory.valueOf(categoryName);
+        AllowedCategory category = AllowedCategory.valueOf(categoryName);
         return switch (category) {
             case CHANCE -> new ChanceScorer();
             case YATZY -> new YatzyPointsScorer();

@@ -1,7 +1,7 @@
 package org.codingdojo.yatzy3;
 
 import org.codingdojo.YatzyCalculator;
-import org.codingdojo.YatzyCategory;
+import org.codingdojo.yatzy1.categoryManagement.AllowedCategory;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 public class Yatzy3 implements YatzyCalculator {
     @Override
     public List<String> validCategories() {
-        return Arrays.stream(YatzyCategory.values()).map(Enum::toString).collect(Collectors.toList());
+        return Arrays.stream(AllowedCategory.values()).map(Enum::toString).collect(Collectors.toList());
     }
 
     @Override
