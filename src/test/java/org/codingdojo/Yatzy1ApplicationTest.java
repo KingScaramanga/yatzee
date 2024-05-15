@@ -1,17 +1,22 @@
 package org.codingdojo;
 
 import org.codingdojo.yatzy1.Yatzy1Application;
+import org.codingdojo.yatzy1.categoryManagement.CategoryStrategy;
+import org.codingdojo.yatzy1.categoryManagement.CategoryStrategyFactory;
 import org.codingdojo.yatzy1.diceManagement.Dice;
 import org.codingdojo.yatzy1.rollManagement.Roll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -20,14 +25,21 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class Yatzy1ApplicationTest {
 
     @ParameterizedTest
-    @CsvSource({ "1", "2", "3", "4", "5", "five" })
-    public void create_a_roll_from_given_parameters(List<String> rollingParameters){
-        List<Dice> dicesFromParameters= rollingParameters
-            .stream()
-            .filter(item->rollingParameters.indexOf(item)<5)
-            .map(item->new Dice(Integer.parseInt(item)))
-            .toList();
+    @CsvSource({ "1, 2, 3, 4, 5, threes" })
+    public void create_a_roll_from_given_parameters_with_category_three_that_return_3(String firstDice, String secondDice, String thirdDice, String fourthDice, String fifthDice, String categoryName){
+        List<Dice> dicesFromParameters = List.of(
+            new Dice(Integer.parseInt(firstDice)),
+            new Dice(Integer.parseInt(secondDice)),
+            new Dice(Integer.parseInt(thirdDice)),
+            new Dice(Integer.parseInt(fourthDice)),
+            new Dice(Integer.parseInt(fifthDice))
+        );
 
+        CategoryStrategy parametersStrategy = CategoryStrategyFactory.createCategoryStrategy(categoryName);
+
+        Roll rollFromParameters = new Roll(dicesFromParameters, parametersStrategy);
+
+        assertEquals(3, rollFromParameters.calculate());
     }
 
     @Test

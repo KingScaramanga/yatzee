@@ -1,7 +1,7 @@
 package org.codingdojo.yatzy1.categoryManagement;
 
-public class categoryStrategyFactory {
-    public CategoryStrategy createCategoryStrategy(String categoryName){
+public class CategoryStrategyFactory {
+    public static CategoryStrategy createCategoryStrategy(String categoryName){
         return switch (categoryName) {
             case "chance" -> new chanceStrategy();
             case "ones" -> new DiceValueStrategy(1);
