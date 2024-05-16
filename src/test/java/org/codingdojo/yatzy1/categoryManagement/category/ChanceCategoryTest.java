@@ -1,5 +1,7 @@
-package org.codingdojo.yatzy1.categoryManagement;
+package org.codingdojo.yatzy1.categoryManagement.category;
 
+import org.codingdojo.yatzy1.categoryManagement.Category;
+import org.codingdojo.yatzy1.categoryManagement.CategoryFactory;
 import org.codingdojo.yatzy1.rollManagement.Roll;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;

@@ -1,5 +1,8 @@
 package org.codingdojo.yatzy1.categoryManagement;
 
+import org.codingdojo.yatzy1.categoryManagement.category.*;
+import org.codingdojo.yatzy1.categoryManagement.enums.AllowedCategory;
+import org.codingdojo.yatzy1.categoryManagement.enums.AllowedCategoryUtil;
 import org.codingdojo.yatzy1.diceManagement.Dice;
 
 public class CategoryFactory {

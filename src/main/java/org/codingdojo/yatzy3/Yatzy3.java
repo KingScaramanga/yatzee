@@ -1,7 +1,7 @@
 package org.codingdojo.yatzy3;
 
 import org.codingdojo.YatzyCalculator;
-import org.codingdojo.yatzy1.categoryManagement.AllowedCategory;
+import org.codingdojo.yatzy1.categoryManagement.enums.AllowedCategory;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,4 +1,4 @@
-package org.codingdojo.yatzy1.categoryManagement;
+package org.codingdojo.yatzy1.categoryManagement.category;
 
 import org.codingdojo.yatzy1.diceManagement.Dice;
 
@@ -7,12 +7,10 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PairCategory implements Category {
-    @Override
-    public int calculate(Dice[] dices) {
-
+public class CategoryUtil {
+    public static Map<Dice, Integer> getOccurenceDiceMap(Dice[] diceFromRoll){
         Map<Dice, Integer> occurenceDiceValueMap = new HashMap<>();
-        Arrays.stream(dices)
+        Arrays.stream(diceFromRoll)
             .sorted(Comparator.comparingInt(Dice::getValue).reversed())
             .forEach(dice->{
                 if (occurenceDiceValueMap.containsKey(dice)){
@@ -21,11 +19,6 @@ public class PairCategory implements Category {
                     occurenceDiceValueMap.put(dice,1);
                 }
             });
-        return occurenceDiceValueMap.keySet()
-                .stream()
-                .filter(key -> occurenceDiceValueMap.get(key) > 1)
-                .max(Comparator.comparingInt(Dice::getValue))
-                .map(dice -> dice.getValue() * 2)
-                .orElse(0);
+        return occurenceDiceValueMap;
     }
 }

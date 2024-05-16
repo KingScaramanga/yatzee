@@ -14,20 +14,20 @@ public class Yatzy1Application {
             throw new IllegalArgumentException("Yatze1 need 6 parameters to start properly");
         } else{
             try {
-                Dice[] dices = new Dice[5];
+                Dice[] diceFromRoll = new Dice[5];
 
-                dices[0] = new Dice(Integer.parseInt(args[0]));
-                dices[1] =  new Dice(Integer.parseInt(args[1]));
-                dices[2] =  new Dice(Integer.parseInt(args[2]));
-                dices[3] =  new Dice(Integer.parseInt(args[3]));
-                dices[4] =  new Dice(Integer.parseInt(args[4]));
+                diceFromRoll[0] = new Dice(Integer.parseInt(args[0]));
+                diceFromRoll[1] =  new Dice(Integer.parseInt(args[1]));
+                diceFromRoll[2] =  new Dice(Integer.parseInt(args[2]));
+                diceFromRoll[3] =  new Dice(Integer.parseInt(args[3]));
+                diceFromRoll[4] =  new Dice(Integer.parseInt(args[4]));
 
                 String categoryName = args[5];
 
                 Category selectedCategory = CategoryFactory.createCategoryStrategy(categoryName);
-                Roll rollFromParameters = new Roll(dices, selectedCategory);
+                Roll diceRoll = new Roll(diceFromRoll, selectedCategory);
 
-                System.out.println(rollFromParameters.calculate());
+                System.out.println(diceRoll.calculate());
 
             } catch (Exception ex){
                 System.out.println(ex.getMessage());

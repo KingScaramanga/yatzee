@@ -1,4 +1,6 @@
-package org.codingdojo.yatzy1.categoryManagement;
+package org.codingdojo.yatzy1.categoryManagement.enums;
+
+import org.codingdojo.yatzy1.categoryManagement.enums.AllowedCategory;
 
 public class AllowedCategoryUtil {
     public static AllowedCategory getAllowedCategory(String categoryName){

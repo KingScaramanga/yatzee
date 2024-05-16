@@ -1,5 +1,6 @@
-package org.codingdojo.yatzy1.categoryManagement;
+package org.codingdojo.yatzy1.categoryManagement.category;
 
+import org.codingdojo.yatzy1.categoryManagement.Category;
 import org.codingdojo.yatzy1.diceManagement.Dice;
 
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package org.codingdojo.yatzy1.categoryManagement;
+package org.codingdojo.yatzy1.categoryManagement.enums;
 
 public enum AllowedCategory {
     CHANCE, YATZY,
