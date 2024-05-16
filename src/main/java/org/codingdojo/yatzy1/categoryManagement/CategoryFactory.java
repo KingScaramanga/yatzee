@@ -14,13 +14,14 @@ public class CategoryFactory {
             case FOURS -> new DiceValueCategory(Dice.FACE_FOUR);
             case FIVES -> new DiceValueCategory(Dice.FACE_FIVE);
             case SIXES -> new DiceValueCategory(Dice.FACE_SIX);
-        /*case "pair" -> new PairStrategy();
-        case "two pairs" -> TwoPairsStrategy();
-        case "three of a kind" -> ThreeOfAKindStrategy();
-        case "four of a kind" -> FourOfAKindStrategy();
-        case "Small straight" -> SmallStraightStrategy();
-        case "Large straight" -> LargeStraightStrategy();
-        case "Full house" -> FullHouseStrategy();*/
+            case PAIR -> new PairCategory();
+            case TWO_PAIRS -> new TwoPairsCategory();
+            case THREE_OF_A_KIND -> new ThreeOfAKindCategory();
+            case FOUR_OF_A_KIND -> new FourOfAKindCategory();
+            case SMALL_STRAIGHT -> new SmallStraightCategory();
+            case LARGE_STRAIGHT -> new LargeStraightCategory();
+            case FULL_HOUSE -> new FullHouseCategory();
+            case YATZY -> new YatzyCategory();
             default -> throw new IllegalArgumentException("Unknown category provided : " + categoryName);
         };
 

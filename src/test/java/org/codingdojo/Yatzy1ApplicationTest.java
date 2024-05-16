@@ -10,12 +10,40 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 
 public class Yatzy1ApplicationTest {
+
+    @ParameterizedTest
+    @ValueSource(ints = {-1, 7, 10})
+    public void try_a_inconsistent_dice(int diceValue){
+        Exception exception = assertThrows(IllegalArgumentException.class,
+            ()->new Dice(diceValue) );
+
+        String expectedMessage = "Wrong dice value";
+        String actualMessage = exception.getMessage();
+
+        assertTrue(actualMessage.contains(expectedMessage));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"CHANCE", "YATZY", "ONES", "TWOS", "THREES", "FOURS", "FIVES", "SIXES",
+        "PAIR", "THREE_OF_A_KIND", "FOUR_OF_A_KIND", "SMALL_STRAIGHT", "LARGE_STRAIGHT", "TWO_PAIRS", "FULL_HOUSE"})
+    public void try_each_valid_category(String categoryName){
+        assertInstanceOf(Category.class, CategoryFactory.createCategoryStrategy(categoryName));
+    }
+    @ParameterizedTest
+    @ValueSource(strings = {"seventh", "", " "})
+    public void roll_with_an_invalid_category(String categoryName){
+        Exception exception = assertThrows(RuntimeException.class,
+            ()->CategoryFactory.createCategoryStrategy(categoryName) );
+
+        String expectedMessage = "Unknown category";
+        String actualMessage = exception.getMessage();
+
+        assertTrue(actualMessage.contains(expectedMessage));
+    }
 
     @ParameterizedTest
     @CsvSource({ "1, 2, 3, 4, 5, threes, 3" })
@@ -37,15 +65,24 @@ public class Yatzy1ApplicationTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"seventh", "", " "})
-    public void roll_with_an_invalid_category(String categoryName){
-        Exception exception = assertThrows(RuntimeException.class,
-            ()->CategoryFactory.createCategoryStrategy(categoryName) );
+    @CsvSource({ "1, 2, 3, 4, 5, threes, 3", "1, 2, 1, 1, 1, ones, 4",
+        "1, 2, 6, 1, 6, sixes, 12", "2, 2, 2, 2, 2, twos, 10", "5, 2, 2, 2, 2, fives, 5",
+        "2, 2, 2, 4, 4, fours, 8"})
+    public void roll_every_dice_value_strategy(
+        String firstDice, String secondDice, String thirdDice, String fourthDice, String fifthDice, String categoryName, String expectedResult){
 
-        String expectedMessage = "Unknown category";
-        String actualMessage = exception.getMessage();
+        Dice[] dicesFromParameters = new Dice[5];
+        dicesFromParameters[0] = new Dice(Integer.parseInt(firstDice));
+        dicesFromParameters[1] = new Dice(Integer.parseInt(secondDice));
+        dicesFromParameters[2] = new Dice(Integer.parseInt(thirdDice));
+        dicesFromParameters[3] = new Dice(Integer.parseInt(fourthDice));
+        dicesFromParameters[4] = new Dice(Integer.parseInt(fifthDice));
 
-        assertTrue(actualMessage.contains(expectedMessage));
+        Category parametersStrategy = CategoryFactory.createCategoryStrategy(categoryName);
+
+        Roll rollFromParameters = new Roll(dicesFromParameters, parametersStrategy);
+
+        assertEquals(Integer.parseInt(expectedResult), rollFromParameters.calculate());
     }
 
     @Test

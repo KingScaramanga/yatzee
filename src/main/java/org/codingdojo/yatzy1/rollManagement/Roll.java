@@ -11,7 +11,7 @@ public class Roll {
     private final Category selectedCategory;
 
     public Roll(Dice[] dices, Category selectedCategory) {
-        this.dices = new Dice[5];
+        this.dices = dices;
         this.selectedCategory = selectedCategory;
     }
 
