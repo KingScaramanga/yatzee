@@ -1,7 +1,7 @@
 package org.codingdojo.yatzy1.diceManagement;
 
 public class Dice {
-    private int rollValue;
+    private final int rollValue;
     public static final int FACE_ONE = 1;
     public static final int FACE_TWO = 2;
     public static final int FACE_THREE = 3;

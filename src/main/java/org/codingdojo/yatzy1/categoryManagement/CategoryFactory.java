@@ -22,7 +22,6 @@ public class CategoryFactory {
             case LARGE_STRAIGHT -> new LargeStraightCategory();
             case FULL_HOUSE -> new FullHouseCategory();
             case YATZY -> new YatzyCategory();
-            default -> throw new IllegalArgumentException("Unknown category provided : " + categoryName);
         };
 
     }
