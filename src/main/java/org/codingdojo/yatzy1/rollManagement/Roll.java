@@ -19,6 +19,11 @@ public class Roll {
         this.selectedCategory = selectedCategory;
     }
 
+    public Roll(Dice[] dices, Category selectedCategory) {
+        this.dices = dices;
+        this.selectedCategory = selectedCategory;
+    }
+
     public Dice[] getDices() {
         return this.dices;
     }

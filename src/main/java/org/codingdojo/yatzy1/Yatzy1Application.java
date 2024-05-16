@@ -1,5 +1,10 @@
 package org.codingdojo.yatzy1;
 
+import org.codingdojo.yatzy1.categoryManagement.Category;
+import org.codingdojo.yatzy1.categoryManagement.CategoryFactory;
+import org.codingdojo.yatzy1.diceManagement.Dice;
+import org.codingdojo.yatzy1.rollManagement.Roll;
+
 public class Yatzy1Application {
 
     public static void main(String[] args){
@@ -7,26 +12,31 @@ public class Yatzy1Application {
 
         if (args.length<6){
             throw new IllegalArgumentException("Yatze1 need 6 parameters to start properly");
+        } else{
+            try {
+                Dice[] dices = new Dice[5];
+
+                dices[0] = new Dice(Integer.parseInt(args[0]));
+                dices[1] =  new Dice(Integer.parseInt(args[1]));
+                dices[2] =  new Dice(Integer.parseInt(args[2]));
+                dices[3] =  new Dice(Integer.parseInt(args[3]));
+                dices[4] =  new Dice(Integer.parseInt(args[4]));
+
+                String categoryName = args[5];
+
+                Category selectedCategory = CategoryFactory.createCategoryStrategy(categoryName);
+                Roll rollFromParameters = new Roll(dices, selectedCategory);
+
+                System.out.println(rollFromParameters.calculate());
+
+            } catch (Exception ex){
+                System.out.println(ex.getMessage());
+            }
         }
 
     }
 
     protected int[] dice;
-
-    public int score_pair(int d1, int d2, int d3, int d4, int d5)
-    {
-        int[] counts = new int[6];
-        counts[d1-1]++;
-        counts[d2-1]++;
-        counts[d3-1]++;
-        counts[d4-1]++;
-        counts[d5-1]++;
-        int at;
-        for (at = 0; at != 6; at++)
-            if (counts[6-at-1] >= 2)
-                return (6-at)*2;
-        return 0;
-    }
 
     public static int two_pair(int d1, int d2, int d3, int d4, int d5)
     {
