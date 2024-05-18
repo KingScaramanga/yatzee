@@ -72,34 +72,6 @@ public class Yatzy1ApplicationTest {
     }
 
     @Test
-    public void three_of_a_kind(){
-        assertEquals(9, Yatzy1Application.three_of_a_kind(3,3,3,4,5));
-        assertEquals(15, Yatzy1Application.three_of_a_kind(5,3,5,4,5));
-        assertEquals(9, Yatzy1Application.three_of_a_kind(3,3,3,3,5));
-    }
-
-    @Test
-    public void four_of_a_knd(){
-        assertEquals(12, Yatzy1Application.four_of_a_kind(3,3,3,3,5));
-        assertEquals(20, Yatzy1Application.four_of_a_kind(5,5,5,4,5));
-        assertEquals(9, Yatzy1Application.three_of_a_kind(3,3,3,3,3));
-    }
-
-    @Test
-    public void smallStraight(){
-        assertEquals(15, Yatzy1Application.smallStraight(1,2,3,4,5));
-        assertEquals(15, Yatzy1Application.smallStraight(2,3,4,5,1));
-        assertEquals(0, Yatzy1Application.smallStraight(1,2,2,4,5));
-    }
-
-    @Test
-    public void largeStraight(){
-        assertEquals(20, Yatzy1Application.largeStraight(6,2,3,4,5));
-        assertEquals(20, Yatzy1Application.largeStraight(2,3,4,5,6));
-        assertEquals(0, Yatzy1Application.largeStraight(1,2,2,4,5));
-    }
-
-    @Test
     public void fullHouse(){
         assertEquals(18, Yatzy1Application.fullHouse(6,2,2,2,6));
         assertEquals(0, Yatzy1Application.fullHouse(2,3,4,5,6));

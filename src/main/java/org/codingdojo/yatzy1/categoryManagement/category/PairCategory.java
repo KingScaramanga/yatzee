@@ -1,6 +1,7 @@
 package org.codingdojo.yatzy1.categoryManagement.category;
 
 import org.codingdojo.yatzy1.categoryManagement.Category;
+import org.codingdojo.yatzy1.categoryManagement.enums.NumberCategory;
 import org.codingdojo.yatzy1.diceManagement.Dice;
 
 import java.util.Comparator;
@@ -14,9 +15,9 @@ public class PairCategory implements Category {
 
         return occurenceDiceMap.keySet()
                 .stream()
-                .filter(key -> occurenceDiceMap.get(key) > 1)
+                .filter(key -> occurenceDiceMap.get(key) > NumberCategory.SINGLE_VALUE)
                 .max(Comparator.comparingInt(Dice::getValue))
-                .map(dice -> dice.getValue() * 2)
+                .map(dice -> dice.getValue() * NumberCategory.PAIR)
                 .orElse(0);
     }
 }

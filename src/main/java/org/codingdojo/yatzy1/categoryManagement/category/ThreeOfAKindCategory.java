@@ -12,6 +12,7 @@ public class ThreeOfAKindCategory implements Category {
         return occurenceDiceMap.keySet().stream()
             .filter(key->occurenceDiceMap.get(key)>2)
             .mapToInt(dice -> dice.getValue()*3)
-            .sum();
+            .findFirst()
+            .orElse(0);
     }
 }

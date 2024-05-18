@@ -8,12 +8,12 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ThreeOfAKindCategoryTest {
+public class LargeStraightCategoryTest {
     @ParameterizedTest
-    @CsvSource({ "1, 2, 3, 4, 5, three_of_a_kind, 0", "1, 1, 2, 2, 4, three_of_a_kind, 0",
-        "1, 2, 2, 2, 6, three_of_a_kind, 6", "2, 2, 3, 3, 3, three_of_a_kind, 9", "2, 4, 3, 4, 2, three_of_a_kind, 0",
-        "4, 4, 4, 4, 4, three_of_a_kind, 12"})
-    public void try_to_roll_three_of_a_kind(
+    @CsvSource({ "1, 2, 3, 4, 5, large_straight, 0", "2, 3, 4, 5, 4, large_straight, 0",
+        "5, 3, 6, 2, 4, large_straight, 20", "2, 4, 6, 5, 3, large_straight, 20", "2, 4, 3, 4, 2, large_straight, 0",
+        "2, 3, 4, 5, 6, large_straight, 20"})
+    public void try_to_roll_a_large_straight(
         String firstDice, String secondDice, String thirdDice, String fourthDice, String fifthDice, String categoryName, String expectedResult){
 
         Category parametersStrategy = CategoryFactory.createCategoryStrategy(categoryName);
