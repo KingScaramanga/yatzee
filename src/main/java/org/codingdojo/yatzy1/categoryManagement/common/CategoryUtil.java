@@ -11,7 +11,7 @@ import java.util.Map;
 public class CategoryUtil {
     public static AllowedCategory getAllowedCategory(String categoryName){
         try{
-            return AllowedCategory.valueOf(categoryName.toUpperCase());
+            return AllowedCategory.valueOf(categoryName.toUpperCase().replace(" ", "_"));
         } catch (IllegalArgumentException ex){
             throw new IllegalArgumentException("Unknown category " + categoryName);
         }

@@ -17,6 +17,8 @@ public class Roll {
 
         this.dices = dices;
         this.selectedCategory = selectedCategory;
+
+
     }
 
     public Roll(Dice[] dices, Category selectedCategory) {
