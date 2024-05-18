@@ -2,8 +2,8 @@ package org.codingdojo.yatzy1;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.codingdojo.yatzy1.categoryManagement.Category;
-import org.codingdojo.yatzy1.categoryManagement.CategoryFactory;
+import org.codingdojo.yatzy1.categoryManagement.common.interfaces.Category;
+import org.codingdojo.yatzy1.categoryManagement.common.factories.CategoryFactory;
 import org.codingdojo.yatzy1.diceManagement.Dice;
 import org.codingdojo.yatzy1.rollManagement.Roll;
 

@@ -1,4 +1,4 @@
-package org.codingdojo.yatzy1.categoryManagement;
+package org.codingdojo.yatzy1.categoryManagement.common.interfaces;
 
 import org.codingdojo.yatzy1.diceManagement.Dice;
 

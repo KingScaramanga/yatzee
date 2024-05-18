@@ -1,6 +1,7 @@
 package org.codingdojo.yatzy1.categoryManagement.category;
 
-import org.codingdojo.yatzy1.categoryManagement.Category;
+import org.codingdojo.yatzy1.categoryManagement.common.CategoryUtil;
+import org.codingdojo.yatzy1.categoryManagement.common.interfaces.Category;
 import org.codingdojo.yatzy1.diceManagement.Dice;
 
 import java.util.Map;

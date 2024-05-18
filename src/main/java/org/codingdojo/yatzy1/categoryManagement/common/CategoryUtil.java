@@ -1,4 +1,4 @@
-package org.codingdojo.yatzy1.categoryManagement.category;
+package org.codingdojo.yatzy1.categoryManagement.common;
 
 import org.codingdojo.yatzy1.categoryManagement.enums.AllowedCategory;
 import org.codingdojo.yatzy1.diceManagement.Dice;

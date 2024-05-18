@@ -1,6 +1,8 @@
-package org.codingdojo.yatzy1.categoryManagement;
+package org.codingdojo.yatzy1.categoryManagement.common.factories;
 
 import org.codingdojo.yatzy1.categoryManagement.category.*;
+import org.codingdojo.yatzy1.categoryManagement.common.interfaces.Category;
+import org.codingdojo.yatzy1.categoryManagement.common.CategoryUtil;
 import org.codingdojo.yatzy1.categoryManagement.enums.AllowedCategory;
 
 import org.codingdojo.yatzy1.diceManagement.Dice;
