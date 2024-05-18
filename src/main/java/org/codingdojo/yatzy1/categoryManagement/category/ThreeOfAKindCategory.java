@@ -11,7 +11,7 @@ public class ThreeOfAKindCategory implements Category {
         Map<Dice, Integer> occurenceDiceMap = CategoryUtil.getOccurenceDiceMap(diceFromRoll);
         return occurenceDiceMap.keySet().stream()
             .filter(key->occurenceDiceMap.get(key)>2)
-            .mapToInt(dice->occurenceDiceMap.get(dice)*3)
+            .mapToInt(dice -> dice.getValue()*3)
             .sum();
     }
 }

@@ -1,19 +1,31 @@
 package org.codingdojo.yatzy1;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.codingdojo.yatzy1.categoryManagement.Category;
 import org.codingdojo.yatzy1.categoryManagement.CategoryFactory;
 import org.codingdojo.yatzy1.diceManagement.Dice;
 import org.codingdojo.yatzy1.rollManagement.Roll;
 
+
 public class Yatzy1Application {
 
+    private static final Logger logger = LogManager.getLogger(Yatzy1Application.class);
+
     public static void main(String[] args){
-        System.out.println("Welcome to Yatze1");
+        logger.info("Welcome to Yatze1");
 
         if (args.length<6){
-            throw new IllegalArgumentException("Yatze1 need 6 parameters to start properly");
+            logger.error("Yatze1 need 6 parameters to start properly");
         } else{
             try {
+                logger.info(new StringBuilder("Dice Roll {").append(args[0]).append(",")
+                    .append(args[1]).append(",")
+                    .append(args[2]).append(",")
+                    .append(args[3]).append(",")
+                    .append(args[4]).append("}")
+                    .append(" and chosen category : ").append(args[5])
+                );
                 Dice[] diceFromRoll = new Dice[5];
 
                 diceFromRoll[0] = new Dice(Integer.parseInt(args[0]));
@@ -27,10 +39,10 @@ public class Yatzy1Application {
                 Category selectedCategory = CategoryFactory.createCategoryStrategy(categoryName);
                 Roll diceRoll = new Roll(diceFromRoll, selectedCategory);
 
-                System.out.println(diceRoll.calculate());
+                logger.info(new StringBuilder("Roll's score : ").append(diceRoll.calculate()));
 
             } catch (Exception ex){
-                System.out.println(ex.getMessage());
+                logger.error(ex.getMessage());
             }
         }
 
