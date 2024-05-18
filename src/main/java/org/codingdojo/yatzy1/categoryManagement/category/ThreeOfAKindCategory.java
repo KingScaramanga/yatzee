@@ -3,9 +3,15 @@ package org.codingdojo.yatzy1.categoryManagement.category;
 import org.codingdojo.yatzy1.categoryManagement.Category;
 import org.codingdojo.yatzy1.diceManagement.Dice;
 
+import java.util.Map;
+
 public class ThreeOfAKindCategory implements Category {
     @Override
-    public int calculate(Dice[] dices) {
-        return 0;
+    public int calculate(Dice[] diceFromRoll) {
+        Map<Dice, Integer> occurenceDiceMap = CategoryUtil.getOccurenceDiceMap(diceFromRoll);
+        return occurenceDiceMap.keySet().stream()
+            .filter(key->occurenceDiceMap.get(key)>2)
+            .mapToInt(dice->occurenceDiceMap.get(dice)*3)
+            .sum();
     }
 }

@@ -2,12 +2,12 @@ package org.codingdojo.yatzy1.categoryManagement;
 
 import org.codingdojo.yatzy1.categoryManagement.category.*;
 import org.codingdojo.yatzy1.categoryManagement.enums.AllowedCategory;
-import org.codingdojo.yatzy1.categoryManagement.enums.AllowedCategoryUtil;
+
 import org.codingdojo.yatzy1.diceManagement.Dice;
 
 public class CategoryFactory {
     public static Category createCategoryStrategy(String categoryName) {
-        AllowedCategory category = AllowedCategoryUtil.getAllowedCategory(categoryName);
+        AllowedCategory category = CategoryUtil.getAllowedCategory(categoryName);
 
         return switch (category) {
             case CHANCE -> new ChanceCategory();

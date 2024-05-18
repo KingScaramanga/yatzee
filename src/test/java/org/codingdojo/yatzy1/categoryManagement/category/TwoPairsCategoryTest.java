@@ -24,7 +24,7 @@ public class TwoPairsCategoryTest {
 
     @ParameterizedTest
     @CsvSource({ "1, 2, 3, 4, 5, two_pairs, 0", "1, 1, 2, 2, 2, two_pairs, 6",
-        "1, 1, 1, 1, 1, two_pairs, 4", "2, 2, 1, 2, 2, two_pairs, 8"})
+        "1, 1, 1, 1, 1, two_pairs, 4", "2, 2, 1, 2, 2, two_pairs, 8", "2, 2, 3, 3, 3, two_pairs, 10"})
     public void try_to_roll_a_complicate_double_pair(
         String firstDice, String secondDice, String thirdDice, String fourthDice, String fifthDice, String categoryName, String expectedResult){
 

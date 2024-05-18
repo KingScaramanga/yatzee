@@ -1,5 +1,6 @@
 package org.codingdojo.yatzy1.categoryManagement.category;
 
+import org.codingdojo.yatzy1.categoryManagement.enums.AllowedCategory;
 import org.codingdojo.yatzy1.diceManagement.Dice;
 
 import java.util.Arrays;
@@ -8,6 +9,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CategoryUtil {
+    public static AllowedCategory getAllowedCategory(String categoryName){
+        try{
+            return AllowedCategory.valueOf(categoryName.toUpperCase());
+        } catch (IllegalArgumentException ex){
+            throw new IllegalArgumentException("Unknown category " + categoryName);
+        }
+    }
+
     public static Map<Dice, Integer> getOccurenceDiceMap(Dice[] diceFromRoll){
         Map<Dice, Integer> occurenceDiceValueMap = new HashMap<>();
         Arrays.stream(diceFromRoll)
