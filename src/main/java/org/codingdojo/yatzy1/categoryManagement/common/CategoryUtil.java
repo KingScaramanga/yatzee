@@ -13,7 +13,7 @@ public class CategoryUtil {
         try{
             return AllowedCategory.valueOf(categoryName.toUpperCase().replace(" ", "_"));
         } catch (IllegalArgumentException ex){
-            throw new IllegalArgumentException("Unknown category " + categoryName);
+            throw new IllegalArgumentException(new StringBuilder("Unknown category ").append(categoryName).toString());
         }
     }
 

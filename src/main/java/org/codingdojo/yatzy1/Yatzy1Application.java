@@ -42,7 +42,12 @@ public class Yatzy1Application {
                 logger.info(new StringBuilder("Roll's score : ").append(diceRoll.calculate()));
 
             } catch (Exception ex){
+                if (ex instanceof NumberFormatException ) {
+                    logger.error("Incorrect Dice value");
+                }
+
                 logger.error(ex.getMessage());
+
             }
         }
 

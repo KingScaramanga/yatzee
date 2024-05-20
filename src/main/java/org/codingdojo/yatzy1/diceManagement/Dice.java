@@ -14,7 +14,7 @@ public class Dice {
     public Dice(int value) {
         this.rollValue = value;
         if (value<0 || value>6){
-            throw new IllegalArgumentException("Wrong dice value " + value);
+            throw new IllegalArgumentException(new StringBuilder("Wrong dice value ").append(value).toString() );
         }
     }
 
